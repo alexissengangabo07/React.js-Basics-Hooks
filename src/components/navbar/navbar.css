@@ -1,0 +1,28 @@
+.menu-container {
+    background-color: red;
+    padding: 5px 0;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+    margin-left: 0;
+    padding-left: 10px;
+}
+
+.menu > li {
+    font-size: 20px;
+    list-style: none;
+    font-weight: bold;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    padding: 100%;
+    padding-left: 0;
+}
+
+.link:hover {
+    color: aqua
+}
