@@ -7,6 +7,9 @@ function Navbar() {
     <div className='menu-container'>
       <ul className='menu'>
         <li>
+          <span className="name-app">BASIC HOOKS</span>
+        </li>
+        <li>
           <Link to={'/'} style={linkSyle} className="link">Home</Link>
         </li>
         <li>

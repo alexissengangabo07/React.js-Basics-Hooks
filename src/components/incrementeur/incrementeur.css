@@ -15,25 +15,25 @@
 }
 
 .increment {
-    background: linear-gradient(90deg, green, rgb(208, 209, 168));
+    background: green;
 }
 
 .decrement {
-    background: linear-gradient(90deg , rgb(208, 209, 168), #f83f37);
+    background: #f83f37;
 }
 
 .decrement:hover {
-    background: linear-gradient(90deg , rgb(96, 97, 71), #972521);
+    background: #972521;
 }
 
 .increment:hover {
-    background: linear-gradient(90deg , rgb(0, 128, 0), rgb(96, 97, 71));
+    background: rgb(1, 82, 1);
 }
 
 .increment:active {
-    background: linear-gradient(90deg , rgb(0, 34, 0), rgb(96, 97, 71));
+    background: rgb(0, 34, 0);
 }
 
 .decrement:active {
-    background: linear-gradient(90deg , rgb(96, 97, 71), #531512);
+    background: #531512;
 }

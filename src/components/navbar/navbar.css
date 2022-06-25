@@ -3,6 +3,11 @@
     padding: 5px 0;
 }
 
+.name-app {
+    margin-right: 70px;
+    cursor: pointer;
+}
+
 .menu {
     display: flex;
     gap: 30px;
@@ -19,7 +24,7 @@
 .link {
     text-decoration: none;
     color: white;
-    padding: 100%;
+    padding: 30%;
     padding-left: 0;
 }
 
