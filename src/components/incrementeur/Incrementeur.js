@@ -1,5 +1,6 @@
 import React from 'react';
 import './incrementeur.css';
+import {ButtonGroup, Button} from '@mui/material';
 
 function Incrementeur() {
   return (
@@ -14,8 +15,10 @@ function Incrementeur() {
                     <h1>2</h1>
                 </div>
                 <div className="buttons">
-                    <input type="button" className="btn increment" value="INCREMENTER" />
-                    <input type="button" className="btn decrement" value="DECREMENTER" />
+                <ButtonGroup variant="contained" size="large">
+                    <Button>Hello World</Button>
+                    <Button color="success">Hello World</Button>
+                </ButtonGroup>
                 </div>
             </div>
         </main>
