@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   return (
-    <div>
+    <main>
       <Navbar />
         <div className='app'>
           <Routes>
@@ -17,7 +17,7 @@ function App() {
             <Route path="/incrementeur" element={<Incrementeur />} />
         </Routes>
         </div>
-    </div>
+    </main>
   )
 }
 
