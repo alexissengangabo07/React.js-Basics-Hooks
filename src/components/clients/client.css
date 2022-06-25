@@ -1,0 +1,13 @@
+.elements {
+    margin: 40px 0;
+}
+
+.section-flex {
+    display: flex;
+}
+
+.articles {
+    height: 100vh;
+    width: 100%;
+}
+
