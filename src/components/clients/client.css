@@ -4,6 +4,7 @@
 
 .section-flex {
     display: flex;
+    gap: 50px;
 }
 
 .articles {
@@ -11,3 +12,26 @@
     width: 100%;
 }
 
+.label {
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.table {
+    width: 100%;
+    margin-top: 28px;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid rgb(167, 163, 163);
+    text-align: center;
+    padding: 8px;
+}
+th {
+    border: 1px solid rgb(167, 163, 163);
+    padding: 10px;
+}
