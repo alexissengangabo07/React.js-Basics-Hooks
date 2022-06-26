@@ -1,8 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './incrementeur.css';
 import {ButtonGroup, Button} from '@mui/material';
 
 function Incrementeur() {
+    let [nombre, setNombre] = useState(0);
+    
+    const handleNombre = (action) => { 
+        if(action === 'increment') {
+            setNombre(nombre += 1) 
+        } 
+        else if(action === 'decrement') {
+            setNombre(nombre -= 1);
+        }
+        else {
+            setNombre(nombre = 0)
+        }
+    }
   return (
     <div className="container">
         <div className="header">
@@ -12,13 +25,14 @@ function Incrementeur() {
             <h5>Increment / Decrement</h5>
             <div className='elements'>
                 <div>
-                    <h1>2</h1>
+                    <span className='counter'>{nombre}</span>
                 </div>
-                <div className="buttons">
-                <ButtonGroup variant="contained" size="large">
-                    <Button>Hello World</Button>
-                    <Button color="success">Hello World</Button>
-                </ButtonGroup>
+                <div>
+                    <ButtonGroup variant="contained" size="large">
+                        <Button color="error" onClick={() => handleNombre('decrement')}>DECREMENTER</Button>
+                        <Button color="info" onClick={() => handleNombre('reset')}>REINITIALISER</Button>
+                        <Button color="success" onClick={() => handleNombre('increment')}>INCREMENTER</Button>
+                    </ButtonGroup>
                 </div>
             </div>
         </main>

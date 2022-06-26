@@ -1,39 +1,7 @@
 .elements {
     margin: 40px 0;
 }
-
-.elements div:first-child {
-    margin-left: 7.4%;
-}
-
-.btn {
-    padding: 12px;
-    border: none;
-    outline: none;
-    color: white;
-    cursor: pointer;
-}
-
-.increment {
-    background: green;
-}
-
-.decrement {
-    background: #f83f37;
-}
-
-.decrement:hover {
-    background: #972521;
-}
-
-.increment:hover {
-    background: rgb(1, 82, 1);
-}
-
-.increment:active {
-    background: rgb(0, 34, 0);
-}
-
-.decrement:active {
-    background: #531512;
+.counter {
+    font-size: 65px;
+    font-weight: bold;
 }
