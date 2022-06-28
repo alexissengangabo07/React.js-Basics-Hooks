@@ -10,26 +10,19 @@ import { } from '@mui/x-data-grid'
 
 function Client() {
 
-  let [client, setClient] = useState({
-    id: 0,
+  let [client, setClient] = useState([]);
+  let [inputVal, setInputVal] = useState({
+     id: 0,
     nom: '',
     prenom: '',
     sexe: ''
   });
-  let [clientsArray, setClientsArray] = useState([]);
 
-  const addClient = (e, lastId) => {
-    let data = new FormData(e.target);
+  const addClient = () => {
+    let arrayClients = [...client];
+    arrayClients.unshift(inputVal);
+    setClient(arrayClients);
     console.log(client);
-  
-    setClient({
-      id: lastId += 1,
-      nom: data.get('nom'),
-      prenom: data.get('prenom'),
-      sexe: data.get('sexe')
-    });
-    setClientsArray(clientsArray.concat(client));
-    console.log(clientsArray);
   }
 
   return (
@@ -43,14 +36,14 @@ function Client() {
             <div>
               <h3>Ajouter un client</h3>
             </div>
-            <form encType='multipart/form-data' onSubmit={(e) => { e.preventDefault(); addClient(e, client.id) }} autoComplete="off">
+            <form encType='multipart/form-data' onSubmit={(e) => { e.preventDefault(); addClient() }} autoComplete="off">
               <FormGroup className='form-group'>
                 <FormLabel required={true} className="label">Nom</FormLabel>
-                <TextField name='nom' size='medium' label="Entrer le nom" variant="outlined" />
+                <TextField name='nom' size='medium' label="Entrer le nom"  onChange={(e) => setInputVal({...inputVal, nom: e.target.value})} variant="outlined" />
               </FormGroup>
               <FormGroup className='form-group'>
                 <FormLabel required={true} className="label">Prenom</FormLabel>
-                <TextField name='prenom' size='medium' label="Entrer le prenom" variant="outlined" />
+                <TextField name='prenom'  onChange={(e) => setInputVal({...inputVal, prenom: e.target.value})} size='medium' label="Entrer le prenom" variant="outlined" />
               </FormGroup>
               <FormGroup className="form-group">
                 <FormLabel className='label'>Sexe</FormLabel>
@@ -61,7 +54,8 @@ function Client() {
                     id="select-sexe"
                     name="sexe"
                     label="sexe"
-                    onChange={(e) => e.target.value}
+                    value={inputVal.sexe}
+                    onChange={(e) => {setInputVal({...inputVal, sexe: e.target.value})}}
                   >
                     <MenuItem value={'Masculin'}>Masculin</MenuItem>
                     <MenuItem value={'Feminin'}>Feminin</MenuItem>
@@ -85,6 +79,7 @@ function Client() {
                 <thead>
                   <tr>
                     <th>#</th>
+                    <th>Id</th>
                     <th>Nom</th>
                     <th>Prenom</th>
                     <th>Sexe</th>
@@ -93,19 +88,16 @@ function Client() {
                 </thead>
                 <tbody>
                   {
-                    [client].map(client => {
-                      if(client.nom != '') {
-                        return(
-                          <tr key={client.id}>
+                    client.map((client, index) => (
+                          <tr key={index}>
                             <td><input type="checkbox" /></td>
+                            <td>{index}</td>
                             <td>{client.nom}</td>
                             <td>{client.prenom}</td>
                             <td>{client.sexe}</td>
                             <td><Button color="error" size='larg' variant='contained'><AiOutlineDelete /></Button></td>
                           </tr>
-                        )
-                      }
-                  })
+                    ))
                 }
                 </tbody>
               </table>
