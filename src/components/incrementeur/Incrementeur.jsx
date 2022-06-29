@@ -1,9 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './incrementeur.css';
 import {ButtonGroup, Button} from '@mui/material';
 
 function Incrementeur() {
+
     let [nombre, setNombre] = useState(0);
+
+    useEffect(() => {
+        nombre === 0 ? document.title = "Incrementeur" : document.title = `Incrementeur ${nombre}`;
+      });
     
     const handleNombre = (action) => { 
         if(action === 'increment') {
