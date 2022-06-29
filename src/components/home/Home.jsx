@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Image from '../../images/react-hooks.webp';
 import './home.css';
 
 function Home() {
+  useEffect(() => {
+    document.title = "Acceuil"
+  });
   return (
     <main className='main'>
       <section>
