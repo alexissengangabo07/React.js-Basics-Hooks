@@ -4,7 +4,7 @@ import './navbar.css';
 
 function Navbar() {
   return (
-    <div className='menu-container'>
+    <header className='menu-container'>
       <ul className='menu'>
         <li>
           <span className="name-app">BASIC HOOKS</span>
@@ -19,7 +19,7 @@ function Navbar() {
           <Link to={'/incrementeur'} style={linkSyle} className="link">Incrementeur</Link>
         </li>
       </ul>
-    </div>
+    </header>
   )
 }
 

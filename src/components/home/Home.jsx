@@ -7,7 +7,7 @@ function Home() {
     document.title = "Acceuil"
   });
   return (
-    <main className='main'>
+    <div className='main'>
       <section>
         <h2>Les Hooks en React</h2>
       <article>
@@ -39,7 +39,7 @@ function Home() {
         </p>
       </article>
     </section>
-    </main>
+    </div>
   )
 }
 

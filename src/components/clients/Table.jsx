@@ -1,8 +1,19 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { AiOutlineDelete } from 'react-icons/ai';
 import { Button } from "@mui/material";
 
 function Table(props) {
+  let checkboxRef = useRef(null);
+  let checkAll = useRef(null);
+
+  const handlerAll = () => {
+    if(checkAll.current.checked) {
+      checkAll.current.checked = false;
+    }
+    else {
+      checkAll.current.checked = true;
+    }
+  }
 
     const addSelected = (e) => {
         let selectArray = [...props.selected];
@@ -15,8 +26,15 @@ function Table(props) {
         props.setSelected(selectArray);
     }
 
+    const handleCheckbox = () => {
+      checkboxRef.current.selected = false;
+      console.log(checkboxRef.current.selected);
+    }
+
     return (
     <>
+    <input ref={checkAll} type="checkbox" /><input ref={checkAll} type="checkbox" /><input ref={checkAll} type="checkbox" />
+    <input onClick={handlerAll} type="button" value="OKAY" />
         <table className='table'>
                 <thead>
                   <tr>
@@ -31,7 +49,7 @@ function Table(props) {
                   {
                     props.clientArray.map((client, index) => (
                           <tr key={index}>
-                            <td><input type="checkbox" value={index} onChange={e => addSelected(e.target)} /></td>
+                            <td><input type="checkbox" ref={checkboxRef} value={index} onChange={e => addSelected(e.target)} /></td>
                             <td>{client.nom}</td>
                             <td>{client.prenom}</td>
                             <td>{client.sexe}</td>
@@ -42,7 +60,7 @@ function Table(props) {
                 </tbody>
               </table>
               <div style={{marginTop: 20}}>
-              <Button color="error" onClick={() => props.deleteMultiple(props.selected)} size='large' variant='contained'><AiOutlineDelete /> Supprimer elements</Button>
+              <Button color="error" onClick={() => { props.deleteMultiple(props.selected); handleCheckbox() }} size='large' variant='contained'><AiOutlineDelete /> Supprimer elements</Button>
               </div>
     </>
   )
