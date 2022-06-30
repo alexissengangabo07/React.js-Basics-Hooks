@@ -8,17 +8,17 @@ import './App.css';
 
 function App() {
   return (
-    <main>
+    <>
       <Navbar />
-        <div className='app'>
+        <main className='app'>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/client" element={<Client />} />
             <Route path="/incrementeur" element={<Incrementeur />} />
             <Route path="*" element={<Home/>} />
         </Routes>
-        </div>
-    </main>
+        </main>
+    </>
   )
 }
 

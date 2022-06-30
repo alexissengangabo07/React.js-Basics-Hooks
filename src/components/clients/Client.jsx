@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './client.css';
 import Form from "./Form";
 import Table from './Table';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 function Client() {
   useEffect(() => {
@@ -12,16 +14,38 @@ function Client() {
   let [inputVal, setInputVal] = useState({ nom: '', prenom: '', sexe: '' });
   let [selected, setSelected] = useState([]);
 
+  const notifySuccess = () => toast.success("Client ajouté  avec succès!", {
+    position: "top-center",
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+});
+
+const notifyDelete = () => toast.error("Client(s) supprimé!", {
+  position: "top-center",
+  autoClose: 1500,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+});
+
   const addClient = (e) => {
     let arrayClients = [...client];
     arrayClients.unshift(inputVal);
     setClient(arrayClients);
     setInputVal({ nom: '', prenom: '', sexe: '' });
+    notifySuccess();
   }
   const deleteClient = (index) => {
     let arrayClients = [...client];
     arrayClients.splice(index, 1);
     setClient(arrayClients);
+    notifyDelete()
   }
   const deleteMultiple = (elements) => {
     let arrayClients = [...client];
@@ -31,14 +55,15 @@ function Client() {
     }
     setSelected([])
     setClient(arrayClients);
+    notifyDelete();
   }
 
   return (
     <div className="container">
+      <ToastContainer style={{marginTop: 50}} />
       <div className="header">
         <h1>Clients</h1>
       </div>
-      <main>
         <section className='section-flex'>
           <article className='articles'>
             <div>
@@ -55,7 +80,6 @@ function Client() {
             </div>
           </article>
         </section>
-      </main>
     </div>
   )
 }
