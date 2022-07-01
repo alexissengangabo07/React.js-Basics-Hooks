@@ -14,25 +14,16 @@ function Client() {
   let [inputVal, setInputVal] = useState({ nom: '', prenom: '', sexe: '' });
   let [selected, setSelected] = useState([]);
 
-  const notifySuccess = () => toast.success("Client ajouté  avec succès!", {
+  const toastProp = {
     position: "top-center",
     autoClose: 1500,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-});
-
-const notifyDelete = () => toast.error("Client(s) supprimé!", {
-  position: "top-center",
-  autoClose: 1500,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-});
+    draggable: true
+  };
+  const notifySuccess = () => toast.success("Client ajouté  avec succès!", toastProp);
+  const notifyDelete = () => toast.error("Client(s) supprimé!", toastProp);
 
   const addClient = (e) => {
     let arrayClients = [...client];
