@@ -4,16 +4,6 @@ import { Button } from "@mui/material";
 
 function Table(props) {
   let checkboxRef = useRef(null);
-  let checkAll = useRef(null);
-
-  const handlerAll = () => {
-    if(checkAll.current.checked) {
-      checkAll.current.checked = false;
-    }
-    else {
-      checkAll.current.checked = true;
-    }
-  }
 
     const addSelected = (e) => {
         let selectArray = [...props.selected];
@@ -33,8 +23,6 @@ function Table(props) {
 
     return (
     <>
-    <input ref={checkAll} type="checkbox" /><input ref={checkAll} type="checkbox" /><input ref={checkAll} type="checkbox" />
-    <input onClick={handlerAll} type="button" value="OKAY" />
         <table className='table'>
                 <thead>
                   <tr>

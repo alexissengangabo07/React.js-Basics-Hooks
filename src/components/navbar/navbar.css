@@ -1,6 +1,8 @@
 .menu-container {
     background-color: red;
     padding: 5px 0;
+    position: sticky;
+    top: 0;
 }
 
 .name-app {
