@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './client.css';
 import Form from "./Form";
 import Table from './Table';
@@ -13,6 +13,7 @@ function Client() {
   let [client, setClient] = useState([]);
   let [inputVal, setInputVal] = useState({ nom: '', prenom: '', sexe: '' });
   let [selected, setSelected] = useState([]);
+  let formRef = useRef(null);
 
   const toastProp = {
     position: "top-center",
@@ -47,6 +48,7 @@ function Client() {
     setSelected([])
     setClient(arrayClients);
     notifyDelete();
+    formRef.current.reset();
   }
 
   return (
@@ -67,7 +69,7 @@ function Client() {
               <h3>Liste des clients <span className='badge'>{client.length}</span></h3>
             </div>
             <div>
-              <Table clientArray={client} selected={selected} setSelected={setSelected}  deleteClient={deleteClient} deleteMultiple={deleteMultiple}  />
+              <Table clientArray={client} selected={selected} setSelected={setSelected}  formRef={formRef}  deleteClient={deleteClient} deleteMultiple={deleteMultiple}  />
             </div>
           </article>
         </section>
