@@ -1,9 +1,8 @@
-import React, {useRef} from 'react'
+import React from 'react'
 import { AiOutlineDelete } from 'react-icons/ai';
 import { Button } from "@mui/material";
 
 function Table(props) {
-  let checkboxRef = useRef(null);
 
     const addSelected = (e) => {
         let selectArray = [...props.selected];
@@ -16,13 +15,11 @@ function Table(props) {
         props.setSelected(selectArray);
     }
 
-    const handleCheckbox = () => {
-      checkboxRef.current.selected = false;
-      console.log(checkboxRef.current.selected);
-    }
+ 
 
     return (
     <>
+    <form ref={props.formRef}>
         <table className='table'>
                 <thead>
                   <tr>
@@ -37,7 +34,7 @@ function Table(props) {
                   {
                     props.clientArray.map((client, index) => (
                           <tr key={index}>
-                            <td><input type="checkbox" ref={checkboxRef} value={index} onChange={e => addSelected(e.target)} /></td>
+                            <td><input type="checkbox" value={index} onClick={e => addSelected(e.target)} /></td>
                             <td>{client.nom}</td>
                             <td>{client.prenom}</td>
                             <td>{client.sexe}</td>
@@ -47,8 +44,9 @@ function Table(props) {
                 }
                 </tbody>
               </table>
+              </form>
               <div style={{marginTop: 20}}>
-              <Button color="error" onClick={() => { props.deleteMultiple(props.selected); handleCheckbox() }} size='large' variant='contained'><AiOutlineDelete /> Supprimer elements</Button>
+              <Button color="error" onClick={() => { props.deleteMultiple(props.selected); }} size='large' variant='contained'><AiOutlineDelete /> Supprimer elements</Button>
               </div>
     </>
   )
